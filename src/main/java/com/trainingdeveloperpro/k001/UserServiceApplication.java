@@ -27,7 +27,7 @@ public class UserServiceApplication {
 	public Docket swaggerPersonApi10() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.trainingdeveloperpro.k001.nguyenhoangtruong.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.trainingdeveloperpro.k001.phamminhquoc.mainController"))
 				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(new ApiInfoBuilder().version("1.0").title("User Service API").description("Documentation User API v1.0").build());
