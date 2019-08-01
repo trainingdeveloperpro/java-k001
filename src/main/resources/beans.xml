@@ -1,0 +1,17 @@
+<?xml version="1.0" endcoding="UTF-8"?>
+<beans xmls="http://www.springframework.org/scheman/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:p="http://www.springframework.org/schema/p"
+                    xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="helloWorld1" class="stackjava.com.springdi.demo.HelloWorld">
+        <property name="message" value="inject by setter" />
+    </bean>
+
+    <bean id="helloWorld2" class="stackjava.com.springdi.demo.HelloWorld">
+        <constructor-arg value="inject by constructor" type="String"></constructor-arg>
+    </bean>
+
+</beans>
