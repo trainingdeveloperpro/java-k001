@@ -11,7 +11,7 @@ import java.util.Map;
 // make this as rest controller
 
 @RestController
-@RequestMapping(path="/user") // This means URL's start with /user (after Application path)
+@RequestMapping(path="/users") // This means URL's start with /user (after Application path)
 public class MainController {
 
     // autowiring user repository
@@ -30,13 +30,13 @@ public class MainController {
      * this method return list of usernames
      * @return usernameList
      */
-    @GetMapping(path = "/getusernames")
+    @GetMapping(path = "/username")
     public List<String> getAllUserNames(){
         return userRepository.getAllUserNames();
     }
 
-    @GetMapping(path = "/adduser")
-    public int addAUser(@RequestParam int id, @RequestParam String name, @RequestParam String email){
+    @GetMapping(path = "/")
+    public int postUser(@RequestParam int id, @RequestParam String name, @RequestParam String email){
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("id", id);
         parameters.put("name",name);
