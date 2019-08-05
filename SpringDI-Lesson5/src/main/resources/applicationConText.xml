@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns ="http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--Inject by contructor-->
+        <bean id = "person1" class = "Collections.Person">
+            <constructor-arg name = "name" type="String" value = "spring"></constructor-arg>
+            <constructor-arg name = "age" type="int" value = "30"></constructor-arg>
+            <constructor-arg name = "addresses">
+                <list>
+                    <ref bean = "address1"></ref>
+                    <ref bean = "address2"></ref>
+                </list>
+            </constructor-arg>
+            <constructor-arg name= "emails">
+                <list>
+                    <value>qpham139@gmail.com</value>
+                    <value>okami99@gmail.com</value>
+                </list>
+            </constructor-arg>
+        </bean>
+        <bean id = "class1" class="Map.Class">
+            <constructor-arg name="classes">
+                <map>
+                    <entry key="3" value-ref="student1"></entry>
+                    <entry key="1" value-ref="student2"></entry>
+                    <entry key="2" value-ref="student3"></entry>
+                </map>
+            </constructor-arg>
+        </bean>
+        <bean id="list1" class="Set.PhoneNumber">
+            <constructor-arg name="listOfPhoneNumber">
+                <set>
+                    <value>0984620799</value>
+                    <value>0934608862</value>
+                    <value>0946651032</value>
+                </set>
+            </constructor-arg>
+        </bean>
+<!--    Inject by setter-->
+        <bean id="person2" class="Collections.Person">
+            <property name="name" value="stackjava.com"></property>
+            <property name="age" value="25"></property>
+            <property name="addresses">
+                <list>
+                    <ref bean="address2"></ref>
+                </list>
+            </property>
+            <property name="emails">
+                <list>
+                    <value>abc@gmail.com</value>
+                    <value>ahihi@gmail.com</value>
+                </list>
+            </property>
+        </bean>
+        <bean id="class2" class="Map.Class">
+            <property name="classes">
+                <map>
+                    <entry key="3" value-ref="student1"></entry>
+                    <entry key="1" value-ref="student2"></entry>
+                </map>
+            </property>
+        </bean>
+        <bean id="list2" class="Set.PhoneNumber">
+            <property name="listOfPhoneNumber">
+                <list>
+                    <value>01686143696</value>
+                    <value>0934608816</value>
+                </list>
+            </property>
+        </bean>
+    <!--Data-->
+        <bean id="address1" class="Collections.Address">
+            <property name="country" value="VN"></property>
+            <property name="province" value="HN"></property>
+            <property name="district" value="Thanh Xuan"></property>
+        </bean>
+        <bean id="address2" class="Collections.Address">
+            <property name="country" value="VN"></property>
+            <property name="province" value="HN"></property>
+            <property name="district" value="Dong Da"></property>
+        </bean>
+        <bean id="student1" class="Map.Student">
+            <property name="name" value="Pham Minh Quoc"></property>
+            <property name="score" value="10"></property>
+        </bean>
+        <bean id="student2" class="Map.Student">
+            <property name="name" value="Dang Huu Canh"></property>
+            <property name="score" value="9"></property>
+        </bean>
+        <bean id="student3" class="Map.Student">
+            <property name="name" value="Pham Tuan Anh"></property>
+            <property name="score" value="8"></property>
+        </bean>
+</beans>
