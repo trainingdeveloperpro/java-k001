@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- inject by setter -->
+    <bean id="person" class="DIObject.Person">
+        <property name="name" value="Duy1"></property>
+        <property name="age" value="25"></property>
+        <property name="address" ref="address"></property>
+    </bean>
+    <!-- Inject by constructor -->
+    <bean id="person2" class="DIObject.Person">
+        <constructor-arg name="name" type="String" value="Duy2"></constructor-arg>
+        <constructor-arg name="age" type="int" value="30"></constructor-arg>
+        <constructor-arg name="address" ref="address"></constructor-arg>
+    </bean>
+    <bean id="address" class="DIObject.Address">
+        <property name="country" value="Viet Nam"></property>
+        <property name="province" value="Ha Noi"></property>
+        <property name="district" value="Ha Dong"></property>
+    </bean>
+</beans>
