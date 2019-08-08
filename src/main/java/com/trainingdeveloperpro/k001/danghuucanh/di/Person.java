@@ -17,7 +17,12 @@ public class Person {
 
     }
 
-    public Person(String name, int age, List<Address> addresses, List<String> emails, Map<Integer,String> hobby, Set<String> phoneNumbers){
+    public Person(String name, 
+                  int age, 
+                  List<Address> addresses, 
+                  List<String> emails, 
+                  Map<Integer,String> hobby, 
+                  Set<String> phoneNumbers){
         this.name = name;
         this.age = age;
         this.addresses = addresses;
