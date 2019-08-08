@@ -6,20 +6,20 @@
 
 
 <!--    Inject by constructor-->
-    <bean id="person2" class="com.trainingdeveloperpro.k001.danghuucanh.di.Person">
+    <bean id="person4" class="com.trainingdeveloperpro.k001.danghuucanh.di.Person">
         <constructor-arg name="name" type="String" value="spring"></constructor-arg>
         <constructor-arg name="age" type="int" value="20"></constructor-arg>
         <constructor-arg name="addresses">
             <list>
-                <ref bean="address1"/>
-                <ref bean="address2"/>
-            </list>
+                <ref bean="address3"/>
+                <ref bean="address4"/>
+              </list>
         </constructor-arg>
         <constructor-arg name="emails">
             <list>
-                <value>abc@gmail.com</value>
-                <value>canh@gmail.com</value>
-            </list>
+                <value>huucanh@gmail.com</value>
+              <value>canh@gmail.com</value>
+              </list>
         </constructor-arg>
         <constructor-arg name="hobby">
             <map>
@@ -35,20 +35,19 @@
             </set>
         </constructor-arg>
     </bean>
-    
-<!--    Inject by setter-->
-    <bean id="person1" class="com.trainingdeveloperpro.k001.danghuucanh.di.Person">
+  
+  <!--    Inject by setter-->
+    <bean id="person3" class="com.trainingdeveloperpro.k001.danghuucanh.di.Person">
         <property name="name" value="cai gi the"></property>
         <property name="age" value="34"></property>
         <property name="addresses">
             <list>
-                <ref bean="address2"/>
+                <ref bean="address3"/>
             </list>
-        </property>
         <property name="emails">
             <list>
                 <value>huucanh@gmail.com</value>
-                <value>abc@yahoo.com</value>
+                <value>canh@yahoo.com</value>
             </list>
         </property>
         <property name="hobby">
@@ -68,15 +67,60 @@
         </property>
     </bean>
 
-    <bean id="address1" class="com.trainingdeveloperpro.k001.danghuucanh.di.Address">
+    <bean id="address4" class="com.trainingdeveloperpro.k001.danghuucanh.di.Address">
         <property name="country" value="Viet Nam"></property>
         <property name="province" value="Ha Noi"></property>
         <property name="district" value="Ha Dong"></property>
     </bean>
 
-    <bean id="address2" class="com.trainingdeveloperpro.k001.danghuucanh.di.Address">
+    <bean id="address3" class="com.trainingdeveloperpro.k001.danghuucanh.di.Address">
         <property name="country" value="Viet Nam"></property>
         <property name="province" value="Hoa Binh"></property>
         <property name="district" value="Son La"></property>
+    </bean>  
+      
+    <!-- Inject by constructor -->
+    <bean id="person2" class="com.trainingdeveloperpro.k001.trungkhanh.lesson5.csm.Person">
+        <constructor-arg name="name" type="String" value="spring"></constructor-arg>
+        <constructor-arg name="age" type="int" value="30"></constructor-arg>
+        <constructor-arg name="addresses">
+            <list>
+                <ref bean="address1" />
+                <ref bean="address2" />
+            <list>
+        </constructor-arg>
+                <value>def@yahoo.com</value>
+            </list>
+        </constructor-arg>
     </bean>
+
+    <!-- Inject by setter -->
+    <bean id="person" class="com.trainingdeveloperpro.k001.trungkhanh.lesson5.csm.Person">
+        <property name="name" value="stackjava.com"></property>
+        <property name="age" value="25"></property>
+        <property name="addresses">
+            <list>
+                <ref bean="address2" />
+            </list>
+        </property>
+        <property name="emails">
+            <list>
+                <value>ghi@hotmail.com</value>
+                <value>klm@zzz.com</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="address1" class="com.trainingdeveloperpro.k001.trungkhanh.lesson5.csm.Address">
+        <property name="country" value="Viet Nam"></property>
+        <property name="province" value="Ha Noi"></property>
+        <property name="district" value="Thanh Xuan"></property>
+    </bean>
+    <bean id="address2" class="com.trainingdeveloperpro.k001.trungkhanh.lesson5.csm.Address">
+        <property name="country" value="Viet Nam"></property>
+        <property name="province" value="Ha Noi"></property>
+        <property name="district" value="Ha Dong"></property>
+    </bean>
+
 </beans>
