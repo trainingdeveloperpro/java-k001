@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <bean id="hello" class="com.trainingdeveloperpro.k001.danghuucanh.springaop.Hello" />
+
+    <bean id="demoBeforeAdvice" class="com.trainingdeveloperpro.k001.danghuucanh.springaop.DemoBeforeAdvice" />
+
+    <bean id="demoAfterAdvice" class="com.trainingdeveloperpro.k001.danghuucanh.springaop.DemoAfterAdvice"/>
+
+    <bean id="demoThrowAdvice" class="com.trainingdeveloperpro.k001.danghuucanh.springaop.DemoThrowAdvice"/>
+
+    <bean id="demoAroundAdvice" class="com.trainingdeveloperpro.k001.danghuucanh.springaop.DemoAroundAdvice"/>
+
+    <bean id="helloProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="hello" />
+        <property name="interceptorNames">
+            <list>
+                <value>demoBeforeAdvice</value>
+                <value>demoAfterAdvice</value>
+                <value>demoThrowAdvice</value>
+                <value>demoAroundAdvice</value>
+            </list>
+        </property>
+    </bean>
+
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <bean id="hello2" class="com.trainingdeveloperpro.k001.danghuucanh.springaspectj.HelloAspectJ"/>
+
+    <bean id="logAspect" class="com.trainingdeveloperpro.k001.danghuucanh.springaspectj.LoggerAspectJ"/>
+
+</beans>
