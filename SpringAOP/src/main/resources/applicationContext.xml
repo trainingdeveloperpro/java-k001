@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+    <bean id = "hello1" class="com.k001.SpringAOP.Hello"></bean>
+    <bean id = "demoBeforeAdvice" class="com.k001.SpringAOP.DemoBeforeAdvice"></bean>
+    <bean id = "demoAfterAdvice" class="com.k001.SpringAOP.DemoAfterAdvice"></bean>
+    <bean id = "demoThrowAdvice" class="com.k001.SpringAOP.DemoThrowAdvice"></bean>
+    <bean id = "demoAroundAdvice" class="com.k001.SpringAOP.DemoAroundAdvice"></bean>
+
+    <bean id = "helloProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="hello1"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>demoBeforeAdvice</value>
+                <value>demoAfterAdvice</value>
+                <value>demoThrowAdvice</value>
+                <value>demoAroundAdvice</value>
+            </list>
+        </property>
+    </bean>
+<!--    AspectJ-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <bean id = "hello2" class="com.k001.AspectJ.Hello"></bean>
+    <bean id = "logAspect" class="com.k001.AspectJ.LoggerAspectJ"></bean>
+</beans>
